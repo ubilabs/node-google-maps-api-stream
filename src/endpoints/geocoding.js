@@ -1,14 +1,11 @@
 import mapsUtils from '../maps-utils';
 
-const Geocoding = mapsUtils.createApi(mapsApi => ({
-  query: (query, done) => {
-    if (typeof query === 'string') {
-      query = {address: query};
-    }
-
-    mapsApi.geocode(query, done);
-  },
-  transform: result => result
-}));
+const Geocoding = mapsUtils.createApi(mapsApi =>
+  (query, done) =>
+    mapsApi.geocode(
+      typeof query === 'object' ? query : {address: query},
+      done
+    )
+);
 
 export {Geocoding};

@@ -1,17 +1,12 @@
 import mapsUtils from '../maps-utils';
 
 const staticMaps = {
-  URL: mapsUtils.createApi(mapsApi => ({
-    query: (query, done) => {
-      const response = mapsApi.staticMap(query);
-      done(null, response);
-    },
-    transform: result => result
-  })),
-  Image: mapsUtils.createApi(mapsApi => ({
-    query: (query, done) => mapsApi.staticMap(query, done),
-    transform: result => result
-  }))
+  URL: mapsUtils.createApi(mapsApi =>
+    (query, done) => done(null, mapsApi.staticMap(query))
+  ),
+  Image: mapsUtils.createApi(mapsApi =>
+    (query, done) => mapsApi.staticMap(query, done)
+  )
 };
 
 export {staticMaps};
