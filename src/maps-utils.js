@@ -1,5 +1,5 @@
 import GoogleMaps from 'googlemaps';
-import apiStream from '../../node-api-stream';
+import {createApi} from '../../node-api-stream';
 
 export default {
   /**
@@ -11,23 +11,20 @@ export default {
    **/
   createApi(initialiseEndpoint,
     GoogleMapsAPI = GoogleMaps,
-    createGenericAPI = apiStream.createApi
+    createGenericAPI = createApi
   ) {
     return createGenericAPI(options => {
       options = options.googleMaps || {};
       validateOptions(options);
 
       const mapsApi = new GoogleMapsAPI(options),
-        endpoint = initialiseEndpoint(mapsApi);
+        queryEndpoint = initialiseEndpoint(mapsApi);
 
-      return {
-        query: (query, done) =>
-          endpoint.query(query, (error, response) => {
-            const errorMessage = getError(error, response);
-            done(errorMessage, response);
-          }),
-        transform: endpoint.transform
-      };
+      return (query, done) =>
+        queryEndpoint(query, (error, response) => {
+          const errorMessage = getError(error, response);
+          done(errorMessage, response);
+        });
     });
   }
 };
