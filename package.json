@@ -40,5 +40,8 @@
   },
   "dependencies": {
     "googlemaps": "^1.11.1"
+  },
+  "engines": {
+    "node": ">=4"
   }
 }
