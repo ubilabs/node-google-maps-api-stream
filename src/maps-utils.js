@@ -2,6 +2,13 @@ import GoogleMaps from 'googlemaps';
 import apiStream from '../../node-api-stream';
 
 export default {
+  /**
+   * Generate a streaming Google Maps API class
+   * @param {Function} initialiseEndpoint Endpoint initialisation function
+   * @param {Class} GoogleMapsAPI Non-Streaming API interface
+   * @param {Function} createGenericAPI Throttled API generator
+   * @returns {Class} Streaming Google Maps API class
+   **/
   createApi(initialiseEndpoint,
     GoogleMapsAPI = GoogleMaps,
     createGenericAPI = apiStream.createApi
@@ -50,6 +57,12 @@ function validateOptions(options) {
   }
 }
 
+/**
+ * Parse error and response to retrieve an error object
+ * @param {Object} error Error object returned by the Google Maps API
+ * @param {Object} response Response returned by the Google Maps API
+ * @returns {Object} an error object if appropriate, or `null`
+ **/
 function getError(error, response) {
   if (!error && response.status === 'OK') {
     return null;
