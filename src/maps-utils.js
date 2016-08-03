@@ -61,7 +61,7 @@ function validateOptions(options) {
  * @returns {Object} an error object if appropriate, or `null`
  **/
 function getError(error, response) {
-  if (!error && response.status === 'OK') {
+  if (!error && (response.status === 'OK' || !response.status)) {
     return null;
   }
 
