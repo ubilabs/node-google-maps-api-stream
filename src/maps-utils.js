@@ -9,24 +9,22 @@ export default {
    * @param {Function} createGenericAPI Throttled API generator
    * @returns {Class} Streaming Google Maps API class
    **/
-  createApi(initialiseEndpoint,
+  createApi: (initialiseEndpoint,
     GoogleMapsAPI = GoogleMaps,
     createGenericAPI = createApi
-  ) {
-    return createGenericAPI(options => {
-      options = options.googleMaps || {};
-      validateOptions(options);
+  ) => createGenericAPI(options => {
+    options = options.googleMaps || {};
+    validateOptions(options);
 
-      const mapsApi = new GoogleMapsAPI(options),
-        queryEndpoint = initialiseEndpoint(mapsApi);
+    const queryEndpoint = initialiseEndpoint(new GoogleMapsAPI(options));
 
-      return (query, done) =>
-        queryEndpoint(query, (error, response) => {
-          const errorMessage = getError(error, response);
-          done(errorMessage, response);
-        });
-    });
-  }
+    // return an API endpoint for api-stream.createApi
+    return (query, done) =>
+      queryEndpoint(query, (error, response) => {
+        const errorMessage = getError(error, response);
+        done(errorMessage, response);
+      });
+  })
 };
 
 /**
