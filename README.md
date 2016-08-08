@@ -68,7 +68,7 @@ All interfaces share the following response format:
 
 All interfaces are NodeJS transform streams. Input data can be passed in by writing or piping to them. They emit the `data`, and `end` events. All interfaces accept an options object upon initialisation. The following options may be set:
 
-**options.googleMaps:** Type: `<Object>`, default: `{}`. Options passed to the `googlemaps` module. You *must* set either a `key` property, containing a Google Maps API key, or a `clientId` and `privateKey`. Consult the [googlemaps](https://www.npmjs.com/package/googlemaps) package for other options.
+**options.googleMaps:** Type: `<Object>`, default: `{}`. Options passed to the `googlemaps` module. You *must* set either a `key` property, containing a Google Maps API key, or a `clientId` and `privateKey`. Consult the [googlemaps](https://www.npmjs.com/package/googlemaps) package documentation for other options.
 
 **options.queriesPerSecond:** Type: `<Number>`, default: `35`. Maximum number of queries per second.
 
