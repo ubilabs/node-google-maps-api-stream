@@ -1,6 +1,6 @@
 {
   "name": "google-maps-api-stream",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Streaming, rate-limited interface to Google Maps API Web Services",
   "main": "dist/index.js",
   "scripts": {
