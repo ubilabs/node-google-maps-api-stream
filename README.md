@@ -1,4 +1,4 @@
-# google-maps-api-stream
+# google-maps-api-stream [![Build Status](https://travis-ci.org/ubilabs/node-google-maps-api-stream.svg?branch=master)](https://travis-ci.org/ubilabs/node-google-maps-api-stream)
 
 A streaming, rate-limited, and caching interface to Google Maps APIs
 
