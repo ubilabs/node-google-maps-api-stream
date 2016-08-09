@@ -1,5 +1,5 @@
 import GoogleMaps from 'googlemaps';
-import {createApi} from '../../node-api-stream';
+import {createApi} from 'api-stream';
 
 export default {
   /**

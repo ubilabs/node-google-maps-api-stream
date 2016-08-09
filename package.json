@@ -1,13 +1,13 @@
 {
   "name": "google-maps-api-stream",
   "version": "0.0.1",
-  "description": "Streaming, rate-limited interface to Google Maps APIs Web Services",
+  "description": "Streaming, rate-limited interface to Google Maps API Web Services",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel ./src --out-dir ./dist",
-    "changelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
+    "generatechangelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
     "lint": "eslint ./src ./test",
-    "prepublish": "npm run test && npm run build",
+    "prepublish": "rm -rf dist/ && npm run build",
     "pretest": "npm run lint",
     "test": "mocha --compilers js:babel-register",
     "release": "release-it"
@@ -26,6 +26,7 @@
   ],
   "author": "Keno Schwalb <schwalb@ubilabs.net>",
   "license": "MIT",
+  "repository": "ubilabs/node-google-maps-api-stream",
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-eslint": "^6.1.0",
@@ -39,6 +40,7 @@
     "sinon": "^1.17.5"
   },
   "dependencies": {
+    "api-stream": "^1.0.0",
     "googlemaps": "^1.11.1"
   },
   "engines": {
