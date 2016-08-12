@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {Directions} from '../src/index';
 
 const directions = new Directions({
