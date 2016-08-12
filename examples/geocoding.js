@@ -7,7 +7,7 @@ const geocoder = new Geocoding({
   cacheFile: 'geocache.db'
 });
 
-geocoder.on('data', data => console.log(data));
+geocoder.on('data', data => console.log(JSON.stringify(data, null, '  ')));
 geocoder.on('end', () => console.log('end'));
 
 geocoder.write('Hamburg, Germany');

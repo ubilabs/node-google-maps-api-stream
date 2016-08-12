@@ -7,7 +7,7 @@ const directions = new Directions({
   cacheFile: 'directionscache.db'
 });
 
-directions.on('data', data => console.log(data));
+directions.on('data', data => console.log(JSON.stringify(data, null, '  ')));
 directions.on('end', () => console.log('end'));
 
 directions.write({
