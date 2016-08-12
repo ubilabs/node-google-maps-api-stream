@@ -49,6 +49,8 @@ geocoder.write('Las Vegas');
 geocoder.end();
 ```
 
+Further examples can be found in [examples/](https://github.com/ubilabs/node-google-maps-api-stream/tree/master/examples)
+
 ### Response Format
 
 All interfaces share the following response format:
