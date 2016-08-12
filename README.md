@@ -125,6 +125,27 @@ Refer to [Request Parameters](https://developers.google.com/maps/documentation/g
 Response format:  
 [Google Geocoding Response](https://developers.google.com/maps/documentation/geocoding/start#geocoding-request-and-response-latitudelongitude-lookup)
 
+# Reverse Geocoding
+
+```js
+const query = {
+  latlng: '53.5610771,9.9569145'
+};
+```
+
+or
+
+```js
+const query = {
+  place_id: 'ChIJa76xwh5ymkcRW-WRjmtd6HU'
+};
+```
+
+Refer to [Request Parameters](https://developers.google.com/maps/documentation/geocoding/intro#ReverseGeocoding) for optional parameters.
+
+Response format:  
+[Google Reverse Geocoding Response](https://developers.google.com/maps/documentation/geocoding/intro#reverse-response)
+
 ### Static Maps
 
 ```js
