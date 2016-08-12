@@ -11,8 +11,9 @@ const staticMaps = new StaticMapsImage({
 });
 
 staticMaps.on('data', data => {
-  if(data.error) {
+  if (data.error) {
     console.error('ERROR:', data.error);
+    return;
   }
 
   fs.writeFileSync(`${data.stats.current}.jpg`, data.response, 'binary');
