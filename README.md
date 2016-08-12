@@ -182,3 +182,28 @@ Refer to [URL Parameters](https://developers.google.com/maps/documentation/stati
 Response format:  
 A string containing the URL to the static maps image
 
+### Street View Images
+
+Required query parameters:
+
+```js
+const query = {
+  location: '51.507868,-0.087689',
+  size: '1200x1600'
+};
+```
+
+or
+
+```js
+const query = {
+  pano: '<pano id>',
+  size: '1200x1600'
+};
+```
+
+Refer to [URL Parameters](https://developers.google.com/maps/documentation/streetview/intro#url_parameters) for optional parameters.
+
+Response format:  
+A binary blob containing the static maps image
+
