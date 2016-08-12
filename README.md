@@ -146,15 +146,7 @@ Refer to [Request Parameters](https://developers.google.com/maps/documentation/g
 Response format:  
 [Google Reverse Geocoding Response](https://developers.google.com/maps/documentation/geocoding/intro#reverse-response)
 
-### Static Maps
-
-```js
-var staticMaps = mapsApi.staticMaps;
-var staticMapsImageURLs = new staticMaps.URL(options);
-var staticMapsImages = new staticMaps.Image(options);
-```
-
-The static maps interface offers two response formats. The `URL` interface simply sets the response field to a URL to a static maps image. The `Image` interface sets the response field to a binary blob containing the image in PNG format.
+### Static Maps Images
 
 Required query parameters:
 
@@ -169,4 +161,22 @@ const query = {
 Refer to [URL Parameters](https://developers.google.com/maps/documentation/static-maps/intro#URL_Parameters) for optional parameters.
 
 Response format:  
-URL string or binary blob
+A binary blob containing the static maps image
+
+### Static Maps URLs
+
+Required query parameters:
+
+```js
+const query = {
+  center: 'lat,lng',
+  zoom: number
+  size: '{width}x{height}'
+};
+```
+
+Refer to [URL Parameters](https://developers.google.com/maps/documentation/static-maps/intro#URL_Parameters) for optional parameters.
+
+Response format:  
+A string containing the URL to the static maps image
+
