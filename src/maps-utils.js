@@ -64,6 +64,12 @@ function getError(error, response) {
   }
 
   if (response) {
+    if (typeof response === 'string') {
+      return {
+        message: response
+      };
+    }
+
     return {
       code: response.status,
       message: response.error_message

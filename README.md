@@ -49,6 +49,8 @@ geocoder.write('Las Vegas');
 geocoder.end();
 ```
 
+Further examples can be found in [examples/](https://github.com/ubilabs/node-google-maps-api-stream/tree/master/examples)
+
 ### Response Format
 
 All interfaces share the following response format:
@@ -125,15 +127,28 @@ Refer to [Request Parameters](https://developers.google.com/maps/documentation/g
 Response format:  
 [Google Geocoding Response](https://developers.google.com/maps/documentation/geocoding/start#geocoding-request-and-response-latitudelongitude-lookup)
 
-### Static Maps
+# Reverse Geocoding
 
 ```js
-var staticMaps = mapsApi.staticMaps;
-var staticMapsImageURLs = new staticMaps.URL(options);
-var staticMapsImages = new staticMaps.Image(options);
+const query = {
+  latlng: '53.5610771,9.9569145'
+};
 ```
 
-The static maps interface offers two response formats. The `URL` interface simply sets the response field to a URL to a static maps image. The `Image` interface sets the response field to a binary blob containing the image in PNG format.
+or
+
+```js
+const query = {
+  place_id: 'ChIJa76xwh5ymkcRW-WRjmtd6HU'
+};
+```
+
+Refer to [Request Parameters](https://developers.google.com/maps/documentation/geocoding/intro#ReverseGeocoding) for optional parameters.
+
+Response format:  
+[Google Reverse Geocoding Response](https://developers.google.com/maps/documentation/geocoding/intro#reverse-response)
+
+### Static Maps Images
 
 Required query parameters:
 
@@ -148,4 +163,47 @@ const query = {
 Refer to [URL Parameters](https://developers.google.com/maps/documentation/static-maps/intro#URL_Parameters) for optional parameters.
 
 Response format:  
-URL string or binary blob
+A binary blob containing the static maps image
+
+### Static Maps URLs
+
+Required query parameters:
+
+```js
+const query = {
+  center: 'lat,lng',
+  zoom: number
+  size: '{width}x{height}'
+};
+```
+
+Refer to [URL Parameters](https://developers.google.com/maps/documentation/static-maps/intro#URL_Parameters) for optional parameters.
+
+Response format:  
+A string containing the URL to the static maps image
+
+### Street View Images
+
+Required query parameters:
+
+```js
+const query = {
+  location: '51.507868,-0.087689',
+  size: '1200x1600'
+};
+```
+
+or
+
+```js
+const query = {
+  pano: '<pano id>',
+  size: '1200x1600'
+};
+```
+
+Refer to [URL Parameters](https://developers.google.com/maps/documentation/streetview/intro#url_parameters) for optional parameters.
+
+Response format:  
+A binary blob containing the static maps image
+

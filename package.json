@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel ./src --out-dir ./dist",
     "generatechangelog": "conventional-changelog -i CHANGELOG.md -s -p angular",
-    "lint": "eslint ./src ./test",
+    "lint": "eslint ./src ./test ./examples",
     "prepublish": "rm -rf dist/ && npm run build",
     "pretest": "npm run lint",
     "test": "mocha --compilers js:babel-register",
